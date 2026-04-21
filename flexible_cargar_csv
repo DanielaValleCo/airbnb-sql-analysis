@@ -1,0 +1,17 @@
+import pandas as pd
+from sqlalchemy import create_engine
+import sys
+
+# recibir archivo desde terminal
+archivo = sys.argv[1]
+
+df = pd.read_csv(archivo, encoding="latin1")
+
+engine = create_engine("postgresql+psycopg2://postgres:TU_PASSWORD@localhost:5432/airbnb_db")
+
+# nombre de tabla = nombre del archivo
+nombre_tabla = archivo.split("\\")[-1].replace(".csv", "")
+
+df.to_sql(nombre_tabla, engine, if_exists="replace", index=False)
+
+print(f"Datos cargados en la tabla: {nombre_tabla}")
