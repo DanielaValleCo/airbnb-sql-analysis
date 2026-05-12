@@ -37,7 +37,7 @@ SQL queries were used to aggregate and analyze the data, focusing on:
 - COUNT()
 - Filtering and ranking
 
-## Question 1 💰: How many listings are there?
+## Question 1 : How many listings are there?
 
 SELECT COUNT(id) AS num_listings
 FROM airbnb;
@@ -45,7 +45,7 @@ FROM airbnb;
 RESULT: 48,895 listings found in the dataset.
 The dataset represents a large and competitive Airbnb market in New York City.
 
-## 👨‍💼How many unique hosts are there?
+## How many unique hosts are there?
 
 SELECT COUNT (DISTINCT host_id)
 FROM airbnb;
@@ -53,21 +53,21 @@ FROM airbnb;
 RESULT: There are 37,457 unique hosts.
 The high number of unique hosts suggest a decentralized market with many individual participants.
 
-## 🏘️How many different types of property are there?
+## How many different types of property are there?
 
 SELECT COUNT(DISTINCT room_type) AS total_tipos_propiedades
 FROM airbnb;
 
 RESULT: There are 3 different types of property: Entire home/apt, shared room and private room.
 
-## ⛪How many listings are there in total in Manhattan?
+## How many listings are there in total in Manhattan?
 SELECT COUNT(name)
 FROM airbnb
 WHERE neighbourhood_group = 'Manhattan';
 
 RESULT: There are 21,652 listings in Manhattan.
 
-## 💵All listings with a price greater than 200 
+## All listings with a price greater than 200 
 SELECT name
 FROM airbnb
 WHERE price::NUMERIC > 200;
